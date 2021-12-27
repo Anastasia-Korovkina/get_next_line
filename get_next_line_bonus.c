@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeck <wbeck@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/27 17:23:05 by wbeck             #+#    #+#             */
-/*   Updated: 2021/12/27 17:42:05 by wbeck            ###   ########.fr       */
+/*   Created: 2021/12/27 17:23:13 by wbeck             #+#    #+#             */
+/*   Updated: 2021/12/27 17:43:19 by wbeck            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_remember_text(int fd, char *remember)
 {
@@ -91,14 +91,14 @@ char	*ft_new_remember(char *remember)
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*remember;
+	static char	*remember[OPEN_MAX];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	remember = ft_remember_text(fd, remember);
-	if (!remember)
+	remember[fd] = ft_remember_text(fd, remember[fd]);
+	if (!remember[fd])
 		return (NULL);
-	line = ft_copy(remember);
-	remember = ft_new_remember(remember);
+	line = ft_copy(remember[fd]);
+	remember[fd] = ft_new_remember(remember[fd]);
 	return (line);
 }
