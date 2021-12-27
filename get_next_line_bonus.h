@@ -6,14 +6,14 @@
 /*   By: wbeck <wbeck@student.21-school.ru>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 17:23:23 by wbeck             #+#    #+#             */
-/*   Updated: 2021/12/27 17:54:13 by wbeck            ###   ########.fr       */
+/*   Updated: 2021/12/27 18:11:33 by wbeck            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE
+#  define BUFFER_SIZE
 # endif
 
 # include <unistd.h>
